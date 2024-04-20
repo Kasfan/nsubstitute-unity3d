@@ -1,0 +1,24 @@
+﻿{
+  "name": "com.nsubstitute.nsubstitute",
+  "version": "5.0.0",
+  "displayName": "NSubstitute",
+  "description": "A friendly substitute for .NET mocking libraries.",
+  "unity": "2021.3",
+  "documentationUrl": "https://nsubstitute.github.io/help.html",
+  "dependencies": {
+  },
+  "keywords": [
+    "tests",
+    "testing",
+    "mock",
+    "mocking",
+    "unit",
+    "unit test",
+    "unit tests",
+    "unit testing"
+  ],
+  "author": {
+    "name": "NSubstitute",
+    "url": "https://nsubstitute.github.io/"
+  }
+}
