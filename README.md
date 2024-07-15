@@ -1,17 +1,17 @@
 # NSubstitute-Unity3D
 
-This package contains official `*.dll` of NSubstitute and its dependencies to use in Unity3D.
+This package contains the official `*.dll` of NSubstitute and its dependencies to use in Unity3D.
 
 
 ## Installation
 
 1. Installing from git by adding the following line to your manifest.json
 ```
-"com.kasfan.nsubstitute-unity3d": "https://github.com/Kasfan/nsubstitute-unity3d.git?path=/Packages/NSubstitute-Unity3D"
+"com.kasfan.nsubstitute-unity3d": "https://github.com/Kasfan/nsubstitute-unity3d.git?path=/Packages/NSubstitute"
 ```
 
 
-2. Add `NSubstitute.dll` to Assembly References of your test `*.asmdef`.
+2. Add `NSubstitute.dll` to the Assembly References of your test `*.asmdef`.
 ```json
   "overrideReferences": true,
   "precompiledReferences": [
