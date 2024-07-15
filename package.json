@@ -1,7 +1,7 @@
 ﻿{
-  "name": "com.kasfan.nsubstitute-unity3d",
+  "name": "com.nsubstitute.nsubstitute",
   "version": "5.0.0",
-  "displayName": "NSubstitute-Unity3D",
+  "displayName": "NSubstitute",
   "description": "A friendly substitute for .NET mocking libraries.",
   "unity": "2021.3",
   "documentationUrl": "https://nsubstitute.github.io/help.html",
@@ -18,7 +18,7 @@
     "unit testing"
   ],
   "author": {
-    "name": "Kasfan",
-    "url": "https://github.com/Kasfan"
+    "name": "NSubstitute",
+    "url": "https://nsubstitute.github.io/"
   }
 }
