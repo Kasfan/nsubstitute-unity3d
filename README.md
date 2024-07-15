@@ -7,7 +7,7 @@ This package contains official `*.dll` of NSubstitute and its dependencies to us
 
 1. Installing from git by adding the following line to your manifest.json
 ```
-"net.tnrd.nsubstitute": "https://github.com/Kasfan/nsubstitute-unity3d.git?path=/Packages/NSubstitute-Unity3D"
+"com.kasfan.nsubstitute-unity3d": "https://github.com/Kasfan/nsubstitute-unity3d.git?path=/Packages/NSubstitute-Unity3D"
 ```
 
 
