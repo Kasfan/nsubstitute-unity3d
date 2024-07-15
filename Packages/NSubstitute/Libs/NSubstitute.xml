@@ -9,6 +9,15 @@
             Argument matchers used for specifying calls to substitutes.
             </summary>
         </member>
+        <member name="T:NSubstitute.Arg.AnyType">
+            <summary>
+            This type can be used with any matcher to match a generic type parameter.
+            </summary>
+            <remarks>
+            If the generic type parameter has constraints, you will have to create a derived class/struct that
+            implements those constraints.
+            </remarks>
+        </member>
         <member name="M:NSubstitute.Arg.Any``1">
             <summary>
             Match any argument value compatible with type <typeparamref name="T"/>.
@@ -21,7 +30,13 @@
         </member>
         <member name="M:NSubstitute.Arg.Is``1(System.Linq.Expressions.Expression{System.Predicate{``0}})">
             <summary>
-            Match argument that satisfies <paramref name="predicate"/>. 
+            Match argument that satisfies <paramref name="predicate"/>.
+            If the <paramref name="predicate"/> throws an exception for an argument it will be treated as non-matching.
+            </summary>
+        </member>
+        <member name="M:NSubstitute.Arg.Is``1(System.Linq.Expressions.Expression{System.Predicate{System.Object}})">
+            <summary>
+            Match argument that satisfies <paramref name="predicate"/>.
             If the <paramref name="predicate"/> throws an exception for an argument it will be treated as non-matching.
             </summary>
         </member>
@@ -58,7 +73,13 @@
         </member>
         <member name="M:NSubstitute.Arg.Do``1(System.Action{``0})">
             <summary>
-            Capture any argument compatible with type <typeparamref name="T"/> and use it to call the <paramref name="useArgument"/> function 
+            Capture any argument compatible with type <typeparamref name="T"/> and use it to call the <paramref name="useArgument"/> function
+            whenever a matching call is made to the substitute.
+            </summary>
+        </member>
+        <member name="M:NSubstitute.Arg.Do``1(System.Action{System.Object})">
+            <summary>
+            Capture any argument compatible with type <typeparamref name="T"/> and use it to call the <paramref name="useArgument"/> function
             whenever a matching call is made to the substitute.
             </summary>
         </member>
@@ -87,7 +108,15 @@
         </member>
         <member name="M:NSubstitute.Arg.Compat.Is``1(System.Linq.Expressions.Expression{System.Predicate{``0}})">
             <summary>
-            Match argument that satisfies <paramref name="predicate"/>. 
+            Match argument that satisfies <paramref name="predicate"/>.
+            If the <paramref name="predicate"/> throws an exception for an argument it will be treated as non-matching.
+            This is provided for compatibility with older compilers --
+            if possible use <see cref="M:NSubstitute.Arg.Is``1(System.Linq.Expressions.Expression{System.Predicate{``0}})" /> instead.
+            </summary>
+        </member>
+        <member name="M:NSubstitute.Arg.Compat.Is``1(System.Linq.Expressions.Expression{System.Predicate{System.Object}})">
+            <summary>
+            Match argument that satisfies <paramref name="predicate"/>.
             If the <paramref name="predicate"/> throws an exception for an argument it will be treated as non-matching.
             This is provided for compatibility with older compilers --
             if possible use <see cref="M:NSubstitute.Arg.Is``1(System.Linq.Expressions.Expression{System.Predicate{``0}})" /> instead.
@@ -138,10 +167,16 @@
         </member>
         <member name="M:NSubstitute.Arg.Compat.Do``1(System.Action{``0})">
             <summary>
-            Capture any argument compatible with type <typeparamref name="T"/> and use it to call the <paramref name="useArgument"/> function 
+            Capture any argument compatible with type <typeparamref name="T"/> and use it to call the <paramref name="useArgument"/> function
             whenever a matching call is made to the substitute.
             This is provided for compatibility with older compilers --
             if possible use <see cref="M:NSubstitute.Arg.Do``1(System.Action{``0})" /> instead.
+            </summary>
+        </member>
+        <member name="M:NSubstitute.Arg.Compat.Do``1(System.Action{System.Object})">
+            <summary>
+            Capture any argument compatible with type <typeparamref name="T"/> and use it to call the <paramref name="useArgument"/> function
+            whenever a matching call is made to the substitute.
             </summary>
         </member>
         <member name="T:NSubstitute.Callback">
@@ -257,7 +292,7 @@
              <summary>
              Alternate version of <see cref="T:NSubstitute.Arg"/> matchers for compatibility with pre-C#7 compilers
              which do not support <c>ref</c> return types. Do not use unless you are unable to use <see cref="T:NSubstitute.Arg"/>.
-             
+            
              <see cref="T:NSubstitute.Compatibility.CompatArg"/> provides a non-static version of <see cref="T:NSubstitute.Arg.Compat"/>, which can make it easier
              to use from an abstract base class. You can get a reference to this instance using the static
              <see cref="F:NSubstitute.Compatibility.CompatArg.Instance" /> field.
@@ -287,10 +322,18 @@
         </member>
         <member name="M:NSubstitute.Compatibility.CompatArg.Is``1(System.Linq.Expressions.Expression{System.Predicate{``0}})">
             <summary>
-            Match argument that satisfies <paramref name="predicate"/>. 
+            Match argument that satisfies <paramref name="predicate"/>.
             If the <paramref name="predicate"/> throws an exception for an argument it will be treated as non-matching.
             This is provided for compatibility with older compilers --
             if possible use <see cref="M:NSubstitute.Arg.Is``1(System.Linq.Expressions.Expression{System.Predicate{``0}})" /> instead.
+            </summary>
+        </member>
+        <member name="M:NSubstitute.Compatibility.CompatArg.Is``1(System.Linq.Expressions.Expression{System.Predicate{System.Object}})">
+            <summary>
+            Match argument that satisfies <paramref name="predicate"/>.
+            If the <paramref name="predicate"/> throws an exception for an argument it will be treated as non-matching.
+            This is provided for compatibility with older compilers --
+            if possible use <see cref="M:NSubstitute.Arg.Is``1(System.Linq.Expressions.Expression{System.Predicate{System.Object}})" /> instead.
             </summary>
         </member>
         <member name="M:NSubstitute.Compatibility.CompatArg.Invoke">
@@ -338,10 +381,16 @@
         </member>
         <member name="M:NSubstitute.Compatibility.CompatArg.Do``1(System.Action{``0})">
             <summary>
-            Capture any argument compatible with type <typeparamref name="T"/> and use it to call the <paramref name="useArgument"/> function 
+            Capture any argument compatible with type <typeparamref name="T"/> and use it to call the <paramref name="useArgument"/> function
             whenever a matching call is made to the substitute.
             This is provided for compatibility with older compilers --
             if possible use <see cref="M:NSubstitute.Arg.Do``1(System.Action{``0})" /> instead.
+            </summary>
+        </member>
+        <member name="M:NSubstitute.Compatibility.CompatArg.Do``1(System.Action{System.Object})">
+            <summary>
+            Capture any argument compatible with type <typeparamref name="T"/> and use it to call the <paramref name="useArgument"/> function
+            whenever a matching call is made to the substitute.
             </summary>
         </member>
         <member name="M:NSubstitute.Core.Arguments.ArgumentMatcher.Enqueue``1(NSubstitute.Core.Arguments.IArgumentMatcher{``0})">
